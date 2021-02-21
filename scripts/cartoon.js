@@ -78,6 +78,11 @@ function draw()
     // House
     drawHouse();
 
+    // Caption
+    ctx.fillStyle = 'white';
+    ctx.font = '30px serif';
+    ctx.fillText('A nice view', (canvas.width / 2) - 60, canvas.height - 50);
+
     window.requestAnimationFrame(draw);
 }
 
