@@ -36,6 +36,25 @@ function draw()
     ctx.fillStyle = 'rgb(50, 205, 50)';
     ctx.fillRect(0, canvas.height - (canvas.height / 2), canvas.width, canvas.height / 2);
 
+    // River
+    let start = { x: canvas.width / 2, y: canvas.height / 2 }; // base of center mountain
+    let cp1 = { x: canvas.width * 0.8, y: canvas.height * 0.65 }; // left bank curve to the right
+    let cp2 = { x: -canvas.width * 0.7, y: canvas.height * 0.75 }; // left bank curve to the left
+    let leftEnd = { x: canvas.width * 0.5, y: canvas.height }; // bottom of canvas, perpendicular to mountain base
+    let cp3 = { x: canvas.width * 0.9, y: canvas.height * 0.65 }; // right bank curve to the right
+    let cp4 = { x: -canvas.width * 0.35, y: canvas.height * 0.75 }; // right bank curve to the left
+
+    ctx.beginPath();
+    ctx.moveTo(start.x, start.y); // start from base of the mountain
+    ctx.bezierCurveTo(cp1.x, cp1.y, cp2.x, cp2.y, leftEnd.x, leftEnd.y); // go along left bank
+    ctx.lineTo(canvas.width, canvas.height); // move right to bottom right corner of canvas
+    ctx.lineTo(canvas.width, canvas.height * 0.9); // move upward to bottom of right bank
+    ctx.bezierCurveTo(cp4.x, cp4.y, cp3.x, cp3.y, start.x, start.y); // go along right bank, back towards the mountain
+    ctx.strokeStyle = 'rgb(0,139,139)';
+    ctx.stroke();
+    ctx.fillStyle = 'rgb(0,139,139)';
+    ctx.fill();
+
     // Mountains
     drawMountain((canvas.width / 2) - 100, canvas.height / 2, 80, 80);
     drawMountain((canvas.width / 2) + 130, canvas.height / 2, 85, 75);
