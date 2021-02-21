@@ -62,6 +62,19 @@ function draw()
     drawMountain((canvas.width / 2) + 60, canvas.height / 2, 110, 115, true);
     drawMountain(canvas.width / 2, canvas.height / 2, 100, 125, true);
 
+    // Trees
+    drawTree(canvas.width * 0.05, canvas.height * 0.5);
+    drawTree(canvas.width * 0.05, canvas.height * 0.65);
+    drawTree(canvas.width * 0.08, canvas.height * 0.55);
+    drawTree(canvas.width * 0.12, canvas.height * 0.63);
+    drawTree(canvas.width * 0.16, canvas.height * 0.57);
+    drawTree(canvas.width * 0.2, canvas.height * 0.64);
+    drawTree(canvas.width * 0.22, canvas.height * 0.5);
+    drawTree(canvas.width * 0.25, canvas.height * 0.6);
+    drawTree(canvas.width * 0.32, canvas.height * 0.56);
+    drawTree(canvas.width * 0.43, canvas.height * 0.54);
+    drawTree(canvas.width * 0.38, canvas.height * 0.58);
+
     window.requestAnimationFrame(draw);
 }
 
@@ -106,6 +119,31 @@ function drawMountain(x, y, base, height, withSnow = false)
         ctx.strokeStyle = 'white';
         ctx.stroke();
         ctx.fillStyle = 'white';
+        ctx.fill();
+    }
+}
+
+function drawTree(x, y)
+{
+    let trunkWidth = 10;
+    let trunkHeight = 30;
+    let base = 25;
+
+    // Trunk
+    ctx.fillStyle = 'rgb(117,59,16)';
+    ctx.fillRect(x, y, trunkWidth, trunkHeight);
+
+    // Leaves
+    for(let i = 0; i < 3; i++)
+    {
+        ctx.beginPath();
+        ctx.moveTo(x, y - (base * i));
+        ctx.lineTo(x + base + (base / 4), y - (base * i));
+        ctx.lineTo(x + (base / 4) , y - (base * i) - (base * 1.5));
+        ctx.lineTo(x - base, y - (base * i));
+        ctx.lineTo(x, y - (base * i));
+        ctx.closePath();
+        ctx.fillStyle = 'rgb(0,100,0)';
         ctx.fill();
     }
 }
