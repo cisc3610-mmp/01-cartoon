@@ -17,6 +17,12 @@ function draw()
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.save();
 
+    // Sun
+    ctx.fillStyle = 'rgb(255, 191, 0)';
+    ctx.beginPath();
+    ctx.arc(canvas.width - 100, 100, 50, 0, 2 * Math.PI);
+    ctx.fill();
+
     // Ground
     ctx.fillStyle = 'rgb(50, 205, 50)';
     ctx.fillRect(0, canvas.height - (canvas.height / 2), canvas.width, canvas.height / 2);
