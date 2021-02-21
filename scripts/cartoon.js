@@ -75,6 +75,9 @@ function draw()
     drawTree(canvas.width * 0.43, canvas.height * 0.54);
     drawTree(canvas.width * 0.38, canvas.height * 0.58);
 
+    // House
+    drawHouse();
+
     window.requestAnimationFrame(draw);
 }
 
@@ -146,6 +149,84 @@ function drawTree(x, y)
         ctx.fillStyle = 'rgb(0,100,0)';
         ctx.fill();
     }
+}
+
+function drawHouse()
+{
+    // Porch
+    ctx.beginPath();
+    ctx.moveTo((canvas.width / 2) + 50, canvas.height * 0.8);
+    ctx.lineTo(canvas.width, canvas.height * 0.85);
+    ctx.lineTo(canvas.width, canvas.height * 0.78);
+    ctx.lineTo((canvas.width / 2) + 80, canvas.height * 0.74);
+    ctx.lineTo((canvas.width / 2) + 50, canvas.height * 0.8);
+    ctx.fillStyle = 'rgb(139,69,19)';
+    ctx.fill();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = 'rgb(105,105,105)';
+    ctx.stroke();
+
+    // Front Wall
+    ctx.beginPath();
+    ctx.moveTo((canvas.width / 2) + 80, canvas.height * 0.74);
+    ctx.lineTo((canvas.width / 2) + 80, canvas.height * 0.5);
+    ctx.lineTo(canvas.width, canvas.height * 0.525);
+    ctx.lineTo(canvas.width, canvas.height * 0.78);
+    ctx.fillStyle = 'rgb(199,38,38)';
+    ctx.fill();
+    ctx.stroke();
+
+    // Door
+    ctx.beginPath();
+    ctx.moveTo((canvas.width / 2) + 100, canvas.height * 0.743);
+    ctx.lineTo((canvas.width / 2) + 100, canvas.height * 0.63);
+    ctx.lineTo((canvas.width / 2) + 150, canvas.height * 0.635);
+    ctx.lineTo((canvas.width / 2) + 150, canvas.height * 0.749);
+    ctx.fillStyle = 'rgb(200,123,17)';
+    ctx.fill();
+    ctx.stroke();
+
+    // Doorknob
+    ctx.beginPath();
+    ctx.arc((canvas.width / 2) + 140, canvas.height * 0.7, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = 'rgb(139,69,19)';
+    ctx.fill();
+
+    // Window - first floor
+    ctx.beginPath();
+    ctx.moveTo((canvas.width / 2) + 190, canvas.height * 0.7);
+    ctx.lineTo((canvas.width / 2) + 190, canvas.height * 0.58);
+    ctx.lineTo(canvas.width - 100, canvas.height * 0.59);
+    ctx.lineTo(canvas.width - 100, canvas.height * 0.715);
+    ctx.lineTo((canvas.width / 2) + 190, canvas.height * 0.7);
+    ctx.fillStyle = 'rgba(245,245,245,0.65)';
+    ctx.fill();
+    ctx.stroke();
+
+    // Attic
+    ctx.beginPath();
+    ctx.moveTo((canvas.width / 2) + 80, canvas.height * 0.5);
+    ctx.lineTo(canvas.width - 160, canvas.height * 0.37);
+    ctx.lineTo(canvas.width, canvas.height * 0.525);
+    ctx.fillStyle = 'rgb(199,38,38)';
+    ctx.fill();
+    ctx.stroke();
+
+    // Window - attic
+    ctx.beginPath();
+    ctx.arc(canvas.width - 165, canvas.height * 0.455, 35, 0, 2 * Math.PI);
+    ctx.fillStyle = 'rgba(245,245,245,0.65)';
+    ctx.fill();
+    ctx.stroke();
+
+    // Roof
+    ctx.beginPath();
+    ctx.moveTo(canvas.width - 160, canvas.height * 0.37);
+    ctx.lineTo(canvas.width, canvas.height * 0.33);
+    ctx.lineTo(canvas.width, canvas.height * 0.525);
+    ctx.fillStyle = 'rgb(54,54,54)';
+    ctx.fill();
+    ctx.stroke();
 }
 
 init();
