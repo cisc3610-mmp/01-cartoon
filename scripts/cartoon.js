@@ -17,6 +17,10 @@ function draw()
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.save();
 
+    // Ground
+    ctx.fillStyle = 'rgb(50, 205, 50)';
+    ctx.fillRect(0, canvas.height - (canvas.height / 2), canvas.width, canvas.height / 2);
+
     window.requestAnimationFrame(draw);
 }
 
