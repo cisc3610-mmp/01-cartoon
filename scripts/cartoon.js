@@ -19,9 +19,12 @@ function draw()
 
     // Sun
     ctx.fillStyle = 'rgb(255, 191, 0)';
+    ctx.shadowBlur = 100;
+    ctx.shadowColor = 'rgb(255, 191, 0)';
     ctx.beginPath();
     ctx.arc(canvas.width - 100, 100, 50, 0, 2 * Math.PI);
     ctx.fill();
+    ctx.shadowColor = 'transparent';
 
     // Clouds
     drawCloud(canvas.width / 6, 150, 0.5);
